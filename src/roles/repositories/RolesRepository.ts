@@ -21,7 +21,6 @@ export class RolesRepository {
 
   create({ name }: CreateRoleDTO): Role {
     const role = new Role()
-
     Object.assign(role, {
       name,
       createdAt: new Date(),
@@ -36,6 +35,7 @@ export class RolesRepository {
   }
 
   findByName(name: string): Role | undefined {
-    return this.roles.find(role => role.name === name)
+    const role = this.roles.find(role => role.name === name)
+    return role
   }
 }
