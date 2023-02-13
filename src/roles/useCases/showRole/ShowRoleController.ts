@@ -3,8 +3,6 @@ import { container } from 'tsyringe'
 import { ShowRoleUseCase } from './ShowRoleUseCase'
 
 export class ShowRoleController {
-  constructor(private showRoleUseCase: ShowRoleUseCase) {}
-
   async handle(request: Request, response: Response): Promise<Response> {
     const showRoleUseCase = container.resolve(ShowRoleUseCase)
     const { id } = request.params
