@@ -162,6 +162,57 @@
                       "type": "string"
                     }
                   }
+                },
+                "example": {
+                  "id": "cc497ba3-e7a4-46b6-baef-ca4fd8ab6381",
+                  "name": "Administrator",
+                  "created_at": "2023-02-08T22:36:47.000Z"
+              }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request."
+          },
+          "404": {
+            "description": "Role not found."
+          }
+        }
+      },
+      "get": {
+        "tags": ["Roles"],
+        "summary": "Find role by ID",
+        "description": "Returns roles based on ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identify of a role",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "label"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "aplication/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -174,6 +225,11 @@
           }
         }
       }
+    },
+    "example": {
+        "id": "cc497ba3-e7a4-46b6-baef-ca4fd8ab6381",
+        "name": "Administrator",
+        "created_at": "2023-02-08T22:36:47.000Z"
     }
   }
 }
