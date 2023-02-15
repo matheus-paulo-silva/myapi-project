@@ -31,7 +31,7 @@ export class CreateUserUseCase {
     if (emailExists) {
       throw new AppError('Email address already in use')
     }
-    const role = await this.usersRepository.findById(roleId)
+    const role = await this.rolesRepository.findById(roleId)
     if (!role) {
       throw new AppError('Role not found', 404)
     }
