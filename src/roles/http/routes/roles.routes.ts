@@ -6,6 +6,7 @@ import { UpdateRoleController } from '@roles/useCases/updateRole/UpdateRoleContr
 import { ShowRoleController } from '@roles/useCases/showRole/ShowRoleController'
 import { DeleteRoleController } from '@roles/useCases/deleteRole/DeleteRoleController'
 import { ListRolesController } from '@roles/useCases/listRoles/ListRolesController'
+import { isAuthenticated } from '@shared/http/middlewares/isAuthenticated'
 
 const rolesRouter = Router()
 const createRolesController = container.resolve(CreateRoleController)
@@ -13,6 +14,8 @@ const listRolesController = container.resolve(ListRolesController)
 const updateRolesController = container.resolve(UpdateRoleController)
 const showRolesController = container.resolve(ShowRoleController)
 const deleteRolesController = container.resolve(DeleteRoleController)
+
+rolesRouter.use(isAuthenticated)
 
 rolesRouter.post(
   '/',
