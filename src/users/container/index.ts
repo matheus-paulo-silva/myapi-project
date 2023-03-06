@@ -4,6 +4,7 @@ import { UpdateAvatarController } from '@users/updateAvatar/updateAvatarControll
 import { CreateLoginController } from '@users/useCases/createLogin/CreateLoginController'
 import { CreateUserController } from '@users/useCases/createUser/CreateUserController'
 import { ListUsersController } from '@users/useCases/listUsers/ListUsersController'
+import { ShowProfileController } from '@users/useCases/showProfile/showProfileController'
 import { container } from 'tsyringe'
 
 container.registerSingleton<IUsersRepository>(
@@ -15,3 +16,4 @@ container.registerSingleton('CreateUserController', CreateUserController)
 container.registerSingleton('ListUsersController', ListUsersController)
 container.registerSingleton('CreateLoginController', CreateLoginController)
 container.registerSingleton('UpdateAvatarController', UpdateAvatarController)
+container.registerSingleton('ShowProfileController', ShowProfileController)
