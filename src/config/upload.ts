@@ -19,4 +19,4 @@ export default {
       callback(null, filename)
     },
   }),
-}
+} as UploadConfig
