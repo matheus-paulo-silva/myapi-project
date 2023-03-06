@@ -6,7 +6,7 @@ import { CreateUserController } from '@users/useCases/createUser/CreateUserContr
 import { ListUsersController } from '@users/useCases/listUsers/ListUsersController'
 import { CreateLoginController } from '@users/useCases/createLogin/CreateLoginController'
 import { UpdateAvatarController } from '@users/updateAvatar/updateAvatarController'
-import { ShowProfileController } from '@users/useCases/showProfile/showProfileController'
+import { ShowProfileController } from '@users/useCases/showProfile/ShowProfileController'
 import { isAuthenticated } from '@shared/http/middlewares/isAuthenticated'
 import uploadConfig from '@config/upload'
 
