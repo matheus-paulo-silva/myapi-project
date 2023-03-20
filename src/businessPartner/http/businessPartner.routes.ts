@@ -8,6 +8,9 @@ const businessPartnerRouter = Router()
 const createBusinessPartnerController = container.resolve(
   CreateBusinessPartnerController,
 )
+
+businessPartnerRouter.use(isAuthenticated)
+
 businessPartnerRouter.post(
   '/',
   isAuthenticated,
