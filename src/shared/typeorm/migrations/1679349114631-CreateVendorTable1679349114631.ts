@@ -1,10 +1,10 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm'
 
-export class CreateBusinessPartner1679349114631 implements MigrationInterface {
+export class CreateVendorTable1679349114631 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'businessPartner',
+        name: 'vendor',
         columns: [
           {
             name: 'id',
@@ -21,14 +21,9 @@ export class CreateBusinessPartner1679349114631 implements MigrationInterface {
             isUnique: true,
           },
           {
-            name: 'isClient',
-            type: 'boolean',
-            default: false,
-          },
-          {
-            name: 'isVendor',
-            type: 'boolean',
-            default: false,
+            name: 'cnpj',
+            type: 'string',
+            isUnique: true,
           },
           {
             name: 'created_at',
@@ -41,6 +36,6 @@ export class CreateBusinessPartner1679349114631 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('businessPartner')
+    await queryRunner.dropTable('vendor')
   }
 }

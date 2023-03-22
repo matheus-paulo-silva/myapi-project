@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import { rolesRouter } from '@roles/http/routes/roles.routes'
 import { usersRouter } from '@users/http/users.routes'
-import { businessPartnerRouter } from '@businessPartner/http/businessPartner.routes'
+import { vendorRouter } from '@vendor/http/vendor.routes'
 
 const routes = Router()
 
@@ -11,6 +11,6 @@ routes.get('/', (request, response) => {
 
 routes.use('/roles', rolesRouter)
 routes.use('/users', usersRouter)
-routes.use('/businessPartner', businessPartnerRouter)
+routes.use('/vendor', vendorRouter)
 
 export { routes }

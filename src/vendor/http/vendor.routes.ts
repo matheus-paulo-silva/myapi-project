@@ -2,28 +2,25 @@ import { Router } from 'express'
 import { celebrate, Joi, Segments } from 'celebrate'
 import { container } from 'tsyringe'
 import { isAuthenticated } from '@shared/http/middlewares/isAuthenticated'
-import { CreateBusinessPartnerController } from '@businessPartner/useCases/createBusinessPartner/CreateBusinessPartnerController'
+import { CreateVendorController } from '@vendor/useCases/createBusinessPartner/CreateVendorController'
 
-const businessPartnerRouter = Router()
-const createBusinessPartnerController = container.resolve(
-  CreateBusinessPartnerController,
-)
+const vendorRouter = Router()
+const createVendorController = container.resolve(CreateVendorController)
 
-businessPartnerRouter.use(isAuthenticated)
+vendorRouter.use(isAuthenticated)
 
-businessPartnerRouter.post(
+vendorRouter.post(
   '/',
   isAuthenticated,
   celebrate({
     [Segments.BODY]: {
       name: Joi.string().required(),
       email: Joi.string().email().required(),
-      isClient: Joi.boolean().required(),
-      isVendor: Joi.boolean().required(),
+      cnpj: Joi.string().required(),
     },
   }),
   (request, response) => {
-    return createBusinessPartnerController.handle(request, response)
+    return createVendorController.handle(request, response)
   },
 )
 
@@ -41,4 +38,4 @@ businessPartnerRouter.post(
 //   },
 // )
 
-export { businessPartnerRouter }
+export { vendorRouter }
